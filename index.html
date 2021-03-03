@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <div id="app">
+        <validation-observer v-slot="{ invalid, handleSubmit }">
+            <form @submit.prevent="handleSubmitForm">
+                <validation-provider name="name" rules="required" v-slot="{ errors }">
+                    <input v-model="name" type="text">
+                    <span>{{ errors[0] }}</span>
+                </validation-provider>
+                <validation-provider name="email" rules="required|email" v-slot="{ errors }">
+                    <input v-model="email" type="email">
+                    <span>{{ errors[0] }}</span>
+                </validation-provider>
+                <validation-provider name="ruc" rules="required|ruc" v-slot="{ errors }">
+                    <input v-model="ruc" type="tel">
+                    <span>{{ errors[0] }}</span>
+                </validation-provider>
+                <button type="submit" :disabled="invalid">Submit</button>
+            </form>
+        </validation-observer>
+    </div>
+    <script src="dist/js/app.js"></script>
+</body>
+</html>
