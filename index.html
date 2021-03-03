@@ -21,7 +21,7 @@
                 <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Register</h2>
                 <p class="leading-relaxed mb-5 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 <validation-observer v-slot="{ invalid, handleSubmit }">
-                    <form action="">
+                    <form @submit.prevent="handleSubmitForm">
                         <div class="relative mb-4">
                             <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
                             <validation-provider name="name" rules="required" v-slot="{ errors }">
